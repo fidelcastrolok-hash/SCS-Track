@@ -1,5 +1,6 @@
 | Term | Definition | Screen Found On |
 | --- | --- | --- |
+| IAM | A security service in AWS that manages authentication and access permissions for users and resources. | IAM Dashboard |
 | Region | A geographic area in the world where AWS hosts multiple isolated data centers. | AWS Management Console global header dropdown |
 | Availability Zone | An isolated data center within an AWS Region that has independent power, networking, and cooling. | EC2 Dashboard under Summary |
 | Console | The web-based browser interface used to manage and configure AWS services. | AWS Sign-In page / Main Dashboard |
