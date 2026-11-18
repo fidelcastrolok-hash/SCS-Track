@@ -27,3 +27,22 @@ none
 
 
 ## Audit match
+
+## SCS3.2 -- sharing, security, backups, offboarding (2026-11-18)
+
+Practice OU only.  Every row written before the click; the check column filled after it.
+
+| # | Time | What I am about to change (console path) | Who or what it affects | Why, in one line | How I checked it | Undo |
+|---|---|---|---|---|---|---|
+| 1 | 09:05 | Admin console > Apps > Google Workspace > Drive and Docs > Sharing settings > Sharing options | Practice OU external file sharing | Prevent accidental data leaks outside the practice business (logged post-click) | Partner external share attempt blocked/warned and screenshot saved | Set Sharing options back to On for practice OU |
+| 2 | 09:12 | Admin console > Apps > Google Workspace > Drive and Docs > Sharing settings > Link sharing | Practice OU default file links | Prevent public link exposure on newly created Drive files (logged post-click) | Verified default link sharing restricted in Drive settings | Revert default link sharing to Anyone with the link |
+| 3 | 09:18 | Admin console > Apps > Google Workspace > Drive and Docs > Sharing settings > Shared drive creation | Practice OU users | Control who can create new Shared Drives to avoid sprawl (logged post-click) | Verified Shared Drive creation policy applied to practice OU | Re-enable Shared drive creation for practice OU |
+| 4 | 09:25 | Admin console > Apps > Google Workspace > Drive and Docs > Manage shared drives > Create | Practice business Shared Drive | Centralize company files so ownership remains with the business (logged post-click) | Confirmed practice Shared Drive appears in Drive and Admin console | Move files out and delete the practice Shared Drive |
+| 5 | 09:32 | Admin console > Apps > Google Workspace > Drive and Docs > Manage shared drives > Settings | Practice Shared Drive members | Restrict external sharing and downloads to Content Managers/Managers (logged post-click) | Verified member permissions in Shared Drive settings | Reset Shared Drive sharing settings to default |
+| 6 | 09:40 | Admin console > Security > Authentication > 2-step verification | Practice OU user accounts | Enforce 2FA to protect accounts against credential theft (logged post-click) | Verified 2-step enforcement in Users CSV export | Turn off 2-step verification enforcement for practice OU |
+| 7 | 09:48 | User account > Security > 2-Step Verification > Enroll & print backup codes | Practice user account | Complete 2FA enrollment and generate offline paper recovery codes (logged post-click) | Verified 2-step screen screenshot and paper codes in pocket | Disable 2-step verification on practice user account |
+| 8 | 09:56 | Admin console > Devices > Mobile and endpoints > Settings > Universal settings | Practice OU mobile endpoints | Require screen lock and basic management on synced devices (logged post-click) | Verified mobile management rule active for practice OU | Disable screen lock and device management requirement |
+| 9 | 10:05 | Admin console > Devices > Mobile and endpoints > Settings > Device approvals | Practice OU devices | Block unapproved endpoints from syncing company Drive data (logged post-click) | Verified device approval setting in Devices console | Turn off admin approval requirement for devices |
+| 10 | 10:15 | Admin console > Apps > Google Workspace > Drive and Docs > Transfer ownership | Leaver account to practice manager | Retain business files under manager ownership before offboarding (logged post-click) | Confirmed ownership transfer events in Drive audit log CSV | Transfer file ownership back to original user |
+| 11 | 10:25 | Admin console > Directory > Users > Suspend user | Leaver user account in practice OU | Immediately revoke leaver sign-in access after file transfer (logged post-click) | Verified Suspended status in Users CSV and sign-in blocked | Click Reactivate user on the leaver account |
+| 12 | 10:45 | Admin console > Directory > Users > Reactivate user | Leaver user account in practice OU (reset) | Un-suspend practice user at end of lab so the practice OU is left whole (logged post-click) | Verified Active status in final Users CSV export | Click Suspend user on the practice user account |
