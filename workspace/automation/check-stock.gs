@@ -4,6 +4,7 @@
 function checkstock(){
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   const dashboard = ss.getSheetByName("DASHBOARD");
+  if (!dashboard) return;
   const StockData = dashboard.getRange("A12:C15").
   getValues();
   const lowStockItems =StockData.filter ( row => row[2]=== "REORDER");
