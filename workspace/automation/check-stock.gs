@@ -1,4 +1,5 @@
 // Label: AI-assisted, directed by fisher
+/** @OnlyCurrentDoc */
 
 function checkstock(){
   const ss = SpreadsheetApp.getActiveSpreadsheet();
@@ -18,69 +19,3 @@ function checkstock(){
 
 
 }
-
-function generateMonthlyReport(){
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
-  const record = ss.getSheetByName("RECORD");
-  const data = record.getRange("A2:F1000").getValues();
-  const reportMonth = 10;
-  const reportYear = 2026;
-
-  const monthName = new Date (reportYear, reportMonth).toLocaleString("en", {month: "long"});
-
-  const monthLabel = `${monthName} ${reportYear}`;
-  const monthlySales = data.filter(row => row[0] && typeof row[0].getMonth === "function" && row[0].getMonth() ===reportMonth && row [0].getFullYear()===reportYear && row[2] === "OUT");
-
-  const totalSales = monthlySales.reduce ((sum,row) => sum + Number(row[5] || 0),0);
-  const unitsSold = monthlySales.reduce((sum,row) => sum + Number (row[3] || 0),0);
-
-  let report = ss.getSheetByName("MONTHLY REPORT");
-  if (!report) {
-    report = ss.insertSheet ("MONTHLY REPORT");
-  }
-
-  report.clearContents();
-
-  report.getRange("A1:C1").setValues ([["REPORT MONTH", "TOTAL SALES", "UNIT SOLD"]]);
-  report.getRange("A1:C1").setValues ([[monthLabel, totalSales, unitsSold]]);
-
-
-}
-
-function onEdit(e) {
-
-  const sheet = e.range.getSheet();
-
-  if (sheet.getName() !== "INTAKE") return;
-
-  const row = e.range.getRow();
-  const column = e.range.getColumn();
-
-  if (row === 1 || column > 2) return;
-
-  const item = sheet.getRange(row, 1).getValue();
-  const quantity = sheet.getRange(row, 2).getValue();
-
-  if (item === "" || quantity === "") return;
-
-  const isValid = typeof quantity === "number" && quantity > 0;
-
-  const dateCell = sheet.getRange(row, 3);
-
-  if (dateCell.getValue() === "") {
-    dateCell.setValue(new Date());
-    dateCell.setNumberFormat("dd/MM/yyyy");
-  }
-
-  const checkCell = sheet.getRange(row, 4);
-
-  if (isValid) {
-    checkCell.setValue("OK");
-  } else {
-    checkCell.setValue("INVALID ENTRY");
-  }
-
-}
-
-
-
