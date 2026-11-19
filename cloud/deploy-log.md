@@ -1,14 +1,13 @@
-# Deployment Log
+# Deploy Log — SCS2b.2
 
-GitHub Pages address: https://fidelcastrolok-hash.github.io/client-site/
+- **Date:** 2026-11-13
+- **Student / Track:** fisher (TR-1000-026)
+- **Repository:** https://github.com/fidelcastrolok-hash/client-site
+- **Deployed Commit:** 60c9480
+- **Live URL:** https://fidelcastrolok-hash.github.io/client-site/
+- **Custom Domain / CNAME:** None (default GitHub Pages domain)
 
-## Step 1: Enable GitHub Pages
-- **Clicked or typed:** Opened `client-site` repository on GitHub, went to Settings > Pages, selected `Deploy from a branch`, chose `main` and `/ (root)`, and clicked Save.
-- **Expected:** GitHub Pages builds the repository and publishes the site at the default `github.io` URL.
-- **Seen:** GitHub Pages displayed "Your site is live at https://fidelcastrolok-hash.github.io/client-site/".
-
-## Step 2: Verify Live Site and HTTPS Redirect
-- **Clicked or typed:** Visited `http://fidelcastrolok-hash.github.io/client-site/` in a web browser.
-- **Expected:** Automatic redirect to `https://` with the browser padlock icon and `index.html` loaded.
-- **Seen:** Browser redirected to `https://fidelcastrolok-hash.github.io/client-site/`, showed the padlock icon, and loaded `index.html`.
-
+## Verification Checks
+- **HTTPS & Redirect:** Verified HTTP redirects to HTTPS with a valid TLS padlock.
+- **Custom 404:** Verified missing routes return HTTP 404 with custom `404.html`.
+- **Privacy Check:** Verified `.env`, `.git`, `client/`, and `notes/` are excluded from the public repo and unreachable over HTTP.
