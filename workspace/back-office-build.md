@@ -1,6 +1,15 @@
 # Back Office Build Notes — A Kiosk
 
-## Overkill Verdict
+## Overkill Test
+
+| # | Question | Which way it points | My client's answer |
+| :--- | :--- | :--- | :--- |
+| 1 | How many people type into it? | One owner, or two people who trust each other: Sheets. Five staff across two branches: a business application. | Just the single owner (and occasionally one trusted helper at the counter) — points to Sheets. |
+| 2 | How many rows a month? | Tens to a few hundred: Sheets. Thousands, every day: an application with a real database. | Roughly 60 to 150 sales and restock rows a month — points to Sheets. |
+| 3 | Does it need to talk to anything else? | Nothing, or M-Pesa statements read monthly: Sheets. A till, a website shop, a bank feed, payroll: an application. | Nothing else; standalone daily stock and sales tracking — points to Sheets. |
+| 4 | What happens if a number is wrong? | The owner spots it on the dashboard and adds a correcting row: Sheets. A tax return or an audit depends on it: an application, and an accountant. | The owner spots the mistake on the dashboard and adds a correcting row — points to Sheets. |
+| 5 | Who supports it next year? | The owner, with the card you leave: Sheets. A vendor with a contract: an application — SCS3.7 shows what that looks like. | The owner themselves, using the owner's card left in the client folder — points to Sheets. |
+
 Verdict: Sheets. Pattern: Inventory. Because: One owner enters tens of daily sales and restocks into a simple ledger, and the dashboard tracks current stock and reorder flags without needing a multi-user database or external integrations.
 
 ## Validation and Protection
