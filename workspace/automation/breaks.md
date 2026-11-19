@@ -1,16 +1,13 @@
 # The nine breaks -- SCS3.5
 
-<!-- Checked with the script open.  Every answer is a line number or a patch -- never "it should be fine".        -->
-<!-- Break 8 is checked on the trigger settings: what fires it, and how often.  Break 9 is caught by the test log. -->
-
 | # | Break | Cannot happen because ... (line) | Found -- patched at (line, commit) |
 |---|---|---|---|
-| 1 | The header row counted | | |
-| 2 | The wrong tab | | |
-| 3 | The number read as text | | |
-| 4 | The boundary | | |
-| 5 | The overwrite | | |
-| 6 | The invented piece | | |
-| 7 | The silent assumption | | |
-| 8 | The trigger that runs too often | | |
-| 9 | The confident wrong answer | | |
+| 1 | The header row counted | Cannot happen because line 7 reads `A12:C15`, skipping row 1 headers | |
+| 2 | The wrong tab | Cannot happen because line 6 selects `getSheetByName("DASHBOARD")` and line 10 selects `getSheetByName("REMINDERS")` | |
+| 3 | The number read as text | Cannot happen because line 9 checks exact string equality `row[2]=== "REORDER"` rather than numeric comparison | |
+| 4 | The boundary | Cannot happen because line 7 explicitly bounds the read range to `A12:C15` | |
+| 5 | The overwrite | Cannot happen because line 14 calls `reminders.clearContents()` before line 15 and line 16 write headers and filtered rows | |
+| 6 | The invented piece | Cannot happen because `Test 1` and `Test 2` executed `checkstock()`, the only function in `check-stock.gs` | |
+| 7 | The silent assumption | Cannot happen because line 11 checks `if (!reminders)` and creates the sheet if missing | Found -- patched at (line 2, <HASH>) to add `/** @OnlyCurrentDoc */` |
+| 8 | The trigger that runs too often | Cannot happen because Triggers tab in Apps Script has 0 automatic triggers configured (`checkstock` runs manually only) | |
+| 9 | The confident wrong answer | Caught by `Edge case` in `test-log.md` (missing `REMINDERS` tab and overly broad spreadsheet permission scope) | Found -- patched at (line 2, <HASH>) |
