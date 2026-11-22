@@ -36,4 +36,4 @@ Why not smaller: A t3.nano (512 MiB RAM) leaves very little headroom once Ubuntu
 - Lightsail micro_3_0 (eu-north-1, 1.0 GiB RAM, 40 GB SSD, 2 TB transfer, static IPv4 included): $7.00/mo (~903 KES/mo) (aws.amazon.com/lightsail/pricing, read 2026-11-22)
 
 ## Lightsail or EC2 for this client
-Choose Lightsail (micro_3_0) over EC2 for this small client because Lightsail bundles compute, 40 GB SSD, 2 TB data transfer, and a static IPv4 address into one predictable $7.00/month (~903 KES) bill without extra hourly IPv4 or EBS charges.
+Choose Lightsail (micro_3_0) over EC2 for this small client because Lightsail bundles compute, 40 GB SSD, 2 TB data transfer, and a static IPv4 address into one predictable fixed monthly bill (aws.amazon.com/lightsail/pricing, read 2026-11-22) without extra hourly IPv4 or EBS charges.
