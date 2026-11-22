@@ -27,13 +27,13 @@ Why not bigger: A t3.small (2.0 GiB RAM) or m5.large (8.0 GiB RAM) doubles or mu
 Why not smaller: A t3.nano (512 MiB RAM) leaves very little headroom once Ubuntu 24.04 OS services and Nginx run together (339 MiB already used), risking out-of-memory kills during package updates or traffic spikes.
 
 ## Prices
-- Rate: 1 USD = 129.00 KES, from Central Bank of Kenya (https://www.centralbank.go.ke/), read 2026-11-22
-- S3 Standard storage (eu-north-1): $0.023/GB-month (~3 KES/GB-month), from AWS S3 Pricing (https://aws.amazon.com/s3/pricing/), read 2026-11-22
-- EC2 t3.nano On-Demand (eu-north-1): $0.0054/hr (~$3.94/mo, ~508 KES/mo) + public IPv4 $0.005/hr (~$3.65/mo, ~471 KES/mo), from AWS EC2 On-Demand Pricing (https://aws.amazon.com/ec2/pricing/on-demand/) & AWS VPC Pricing (https://aws.amazon.com/vpc/pricing/), read 2026-11-22
-- EC2 t3.micro On-Demand (eu-north-1): $0.0108/hr (~$7.88/mo, ~1,017 KES/mo) + public IPv4 $0.005/hr (~$3.65/mo, ~471 KES/mo), from AWS EC2 On-Demand Pricing (https://aws.amazon.com/ec2/pricing/on-demand/), read 2026-11-22
-- EC2 t4g.micro On-Demand (eu-north-1): $0.0086/hr (~$6.28/mo, ~810 KES/mo) + public IPv4 $0.005/hr (~$3.65/mo, ~471 KES/mo), from AWS EC2 On-Demand Pricing (https://aws.amazon.com/ec2/pricing/on-demand/), read 2026-11-22
-- EC2 m5.large On-Demand (eu-north-1): $0.100/hr (~$73.00/mo, ~9,417 KES/mo), from AWS EC2 On-Demand Pricing (https://aws.amazon.com/ec2/pricing/on-demand/), read 2026-11-22
-- Lightsail micro_3_0 (eu-north-1, 1.0 GiB RAM, 40 GB SSD, 2 TB transfer, static IPv4 included): $7.00/mo (~903 KES/mo), from Amazon Lightsail Pricing (https://aws.amazon.com/lightsail/pricing/), read 2026-11-22
+- Rate: 1 USD = 129.00 KES, from Central Bank of Kenya (centralbank.go.ke, read 2026-11-22)
+- S3 Standard storage (eu-north-1): $0.023/GB-month (~3 KES/GB-month) (aws.amazon.com/s3/pricing, read 2026-11-22)
+- EC2 t3.nano On-Demand (eu-north-1): $0.0054/hr (~508 KES/mo) + public IPv4 $0.005/hr (~471 KES/mo) (aws.amazon.com/ec2/pricing/on-demand, read 2026-11-22)
+- EC2 t3.micro On-Demand (eu-north-1): $0.0108/hr (~1,017 KES/mo) + public IPv4 $0.005/hr (~471 KES/mo) (aws.amazon.com/ec2/pricing/on-demand, read 2026-11-22)
+- EC2 t4g.micro On-Demand (eu-north-1): $0.0086/hr (~810 KES/mo) + public IPv4 $0.005/hr (~471 KES/mo) (aws.amazon.com/ec2/pricing/on-demand, read 2026-11-22)
+- EC2 m5.large On-Demand (eu-north-1): $0.100/hr (~9,417 KES/mo, ~9.3x t3.micro compute) (aws.amazon.com/ec2/pricing/on-demand, read 2026-11-22)
+- Lightsail micro_3_0 (eu-north-1, 1.0 GiB RAM, 40 GB SSD, 2 TB transfer, static IPv4 included): $7.00/mo (~903 KES/mo) (aws.amazon.com/lightsail/pricing, read 2026-11-22)
 
 ## Lightsail or EC2 for this client
 Choose Lightsail (micro_3_0) over EC2 for this small client because Lightsail bundles compute, 40 GB SSD, 2 TB data transfer, and a static IPv4 address into one predictable $7.00/month (~903 KES) bill without extra hourly IPv4 or EBS charges.
