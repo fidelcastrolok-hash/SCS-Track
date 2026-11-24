@@ -1,31 +1,20 @@
-# Patch Card -- SCS3.6
+# Patch card — SCS3.6
 
-One real bug from the audit.  The fix, not a rewrite.  The spec and the test come before the prompt.
+The bug: tidyName("ng'ombe") in workspace/stock-tools/reorder.js turns "ng'ombe" into "Ng'Ombe" instead of leaving "ng'ombe" as typed.
+Which check: edge
+The spec: Leave "ng'ombe" as typed while other lower-case names still tidy as before.
+The test that shows: leaves ng'ombe as typed
+The prompt: Patch only tidyName in workspace/stock-tools/reorder.js so "ng'ombe" is left as typed while existing lower-case names still tidy.
+Tests after the patch: 6 ok
+Label: AI-assisted, directed by me
+Tool and tier: Browser AI assistant / Ubuntu terminal (free tier)
+Tests or checks: node --test workspace/stock-tools/reorder.test.js (6 ok) and git diff bae7ebd..scs3.6-patch -- workspace/stock-tools
+Rights line: not checked
+Cost: 0
 
-The bug, in one sentence:
-Which check found it (auth, edge case, wrong version, invented library):
-The spec for the fix, one thing:
-The test that shows the bug (input -> expected):
-The prompt, word for word:
+the diff, read whole:
 
-## The Diff, Read Whole
-
-Every line the patch changed.  A line the spec did not ask for is marked BEYOND in the second column.
-
-| Line | What the patch changed | In the spec? | My adjustment |
+| File | Hunk / lines | Spec or BEYOND | Notes |
 |---|---|---|---|
-|  |  |  |  |
-
-Tests before the patch:
-Tests after the patch:
-Tests after my adjustment:
-Commits on scs3.6-patch (the test, the patch, the adjustment):
-
-## Receipt
-
-1. Label:
-2. Tool and tier:
-3. Spec and prompt: above, word for word
-4. Tests or checks:
-5. Rights line:
-6. Cost:
+| workspace/stock-tools/reorder.js | +if (name === "ng'ombe") return name; | Spec | Keeps ng'ombe as typed |
+| workspace/stock-tools/reorder.test.js | +test("leaves ng'ombe as typed", ...) | Spec | Fails before patch, passes after |
