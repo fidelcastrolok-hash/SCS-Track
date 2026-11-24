@@ -34,3 +34,6 @@ test("formats the message", () => {
   assert.match(msg, /Building wholesaler:/);
   assert.match(msg, /Cement 50 kg: 5 left/);
 });
+test("leaves ng'ombe as typed", () => {
+assert.strictEqual(tidyName("ng'ombe"), "ng'ombe");
+});
