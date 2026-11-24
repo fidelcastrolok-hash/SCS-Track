@@ -18,30 +18,3 @@ the diff, read whole:
 |---|---|---|---|
 | workspace/stock-tools/reorder.js | +if (name === "ng'ombe") return name; | Spec | Keeps ng'ombe as typed |
 | workspace/stock-tools/reorder.test.js | +test("leaves ng'ombe as typed", ...) | Spec | Fails before patch, passes after |
-
-```diff
-diff --git a/workspace/stock-tools/reorder.js b/workspace/stock-tools/reorder.js
-index 056d0f5..6db9652 100644
---- a/workspace/stock-tools/reorder.js
-+++ b/workspace/stock-tools/reorder.js
-@@ -31,6 +31,9 @@ function groupBySupplier(list) {
-
- // The counter staff type item names in lower case on the phone -- tidy them for the message.
- function tidyName(name) {
-+  if (name === "ng'ombe") {
-+    return name;
-+  }
-   if (name === name.toLowerCase()) {
-     return name.replace(/\b\w/g, (c) => c.toUpperCase());
-   }
-diff --git a/workspace/stock-tools/reorder.test.js b/workspace/stock-tools/reorder.test.js
-index ea27642..70ea87d 100644
---- a/workspace/stock-tools/reorder.test.js
-+++ b/workspace/stock-tools/reorder.test.js
-@@ -34,3 +34,6 @@ test("formats the message", () => {
-   assert.match(msg, /Building wholesaler:/);
-   assert.match(msg, /Cement 50 kg: 5 left/);
- });
-+test("leaves ng'ombe as typed", () => {
-+assert.strictEqual(tidyName("ng'ombe"), "ng'ombe");
-+});
