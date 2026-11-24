@@ -1,31 +1,19 @@
-# Patch Card -- SCS3.6
+# SCS3.6 Patch Card
 
-One real bug from the audit.  The fix, not a rewrite.  The spec and the test come before the prompt.
+- The bug: tidyName("ng'ombe") returns "Ng'Ombe" instead of leaving "ng'ombe" as typed.
+- Which check: Edge cases (ng'ombe).
+- The spec: Leave "ng'ombe" as typed while other lower-case names still tidy as before.
+- The test that shows: leaves ng'ombe as typed in workspace/stock-tools/reorder.test.js.
+- The prompt: Patch tidyName in workspace/stock-tools/reorder.js so "ng'ombe" stays as typed.
+- Tests after the patch: node --test passed 6 of 6 tests.
+- Label: AI-assisted, directed by me
+- Tool and tier: Terminal / AI tool (check exact tier)
+- Tests or checks: node --test and git diff workspace/stock-tools/reorder.js
+- Rights line: not checked
+- Cost: 0
 
-The bug, in one sentence:
-Which check found it (auth, edge case, wrong version, invented library):
-The spec for the fix, one thing:
-The test that shows the bug (input -> expected):
-The prompt, word for word:
+## the diff, read whole
 
-## The Diff, Read Whole
-
-Every line the patch changed.  A line the spec did not ask for is marked BEYOND in the second column.
-
-| Line | What the patch changed | In the spec? | My adjustment |
-|---|---|---|---|
-|  |  |  |  |
-
-Tests before the patch:
-Tests after the patch:
-Tests after my adjustment:
-Commits on scs3.6-patch (the test, the patch, the adjustment):
-
-## Receipt
-
-1. Label:
-2. Tool and tier:
-3. Spec and prompt: above, word for word
-4. Tests or checks:
-5. Rights line:
-6. Cost:
+- +  if (name === "ng'ombe") { -> Needed for the spec: matches "ng'ombe" before title-casing.
+- +    return name; -> Needed for the spec: returns "ng'ombe" as typed.
+- +  } -> Needed for the spec: closes the if block.
