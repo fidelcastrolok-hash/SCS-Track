@@ -1,15 +1,15 @@
-# Audit Stock Sheet
+# audit-stock-sheet
 
 ## When to use
-Weekly before sending out stock reorder messages.
+Use weekly when auditing a shop inventory export or AI-generated stock script before trusting reorder output.
 
 ## Steps
-1. Run git status and check for secrets or keys.
-2. Check rows for blanks, commas, boundaries, ng'ombe, and &.
-3. Run node --test and check all tests pass.
-4. Record any new bug before editing code.
+1. Run the script on sample stock data and count reorder items by hand.
+2. Check edge cases (blanks, commas, boundaries, `ng'ombe`, `&`) and Node runtime version.
+3. Check for hardcoded secrets or invented functions/APIs.
+4. Record findings and evidence on the audit card.
 
 ## How you know it worked
-node --test exits with 0 failures and no secret matches remain.
+The script output matches the hand count and all four checks have recorded findings and evidence.
 
-Ran: 2026-11-24 — node --test ran on scs3.6-patch with 6/6 tests passing.
+Ran: 2026-11-24 — PASS (audited workspace/stock-tools and verified tests/diff).

@@ -1,15 +1,13 @@
+# AGENTS.md
+
 ## Stack
-Node.js (v22.22.1) and JavaScript in ~/scs/projects/scs-track, including workspace/stock-tools scripts and tests.
-Uses built-in node:test and node:assert without external package dependencies.
+- Node.js (v22.22.1) and JavaScript (`node:test`) in `workspace/stock-tools/`.
 
 ## Tests
-`node --test`
+- `node --test workspace/stock-tools/reorder.test.js`
 
 ## Never
-- Never keep keys, tokens, or secrets in tracked files or paste them into AI prompts.
-- Never rewrite a whole script or touch unrelated files when asked for a single-function patch.
-- Never write "Clean" without a command and output as evidence.
-- Never run an agent on main before branching or skip reading every diff line.
-
-## Skills
-- `skills/audit-stock-sheet/SKILL.md` — weekly stock sheet audit before sending reorder messages.
+- Never leave API keys or secrets hardcoded in source files or git history.
+- Never trust unverified or invented functions without checking official docs first.
+- Never modify files outside `workspace/stock-tools/` during a scoped stock-tool task.
+- Never accept AI edits without reading the full diff first.

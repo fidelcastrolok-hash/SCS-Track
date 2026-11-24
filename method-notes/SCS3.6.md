@@ -1,6 +1,6 @@
-1. Five passing tests hid the ng'ombe capitalization bug in tidyName.
-2. Real command outputs in Found and Evidence keep audits honest.
-3. Committing a failing test first on scs3.6-patch proves the bug before patching.
-4. Patching one function and reading the full diff prevents accidental rewrites.
-5. Branching scs3.6-agent from main and logging steps as they run protects main.
-6. Least careful check on my patch: edge cases across all combined inputs — a test with blanks, commas, boundaries, ng'ombe, and & together would reveal gaps.
+- Audited AI-generated stock tool across auth, edge cases, versions, and invented libraries before patching.
+- Kept the patch on branch `scs3.6-patch` with a failing test first and a full diff review.
+- Removed hardcoded SMS key from `send-sms.js` and noted why key rotation is required due to git history.
+- Scoped agent activity to `workspace/stock-tools` and recorded rejected changes and outcomes.
+- Tracked AI usage, pricing source/date, and shilling totals on the cost card.
+- Check run least carefully on my own patch: version/invented-API docs verification; a test asserting exact runtime behavior and explicit non-mocked imports would catch it.
