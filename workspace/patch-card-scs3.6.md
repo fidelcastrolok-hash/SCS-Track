@@ -12,7 +12,7 @@
 
 **Tests after the patch:** 6 ok (node --test passes all 6 tests on scs3.6-patch)
 
-**Label:** scs3.6-patch
+**Label:** AI-assisted, directed by me
 
 **Tool and tier:** Browser AI assistant / Ubuntu terminal (free tier)
 
@@ -24,13 +24,18 @@
 
 **the diff, read whole:**
 
+| File / hunk | Change | Spec or BEYOND |
+|---|---|---|
+| reorder.js (+3 lines in tidyName) | Early return when name === "ng'ombe" | Spec |
+| reorder.test.js (+4 lines) | Added test "leaves ng'ombe as typed" | Spec |
+
 ```diff
 diff --git a/workspace/stock-tools/reorder.js b/workspace/stock-tools/reorder.js
 index 056d0f5..6db9652 100644
 --- a/workspace/stock-tools/reorder.js
 +++ b/workspace/stock-tools/reorder.js
 @@ -31,6 +31,9 @@ function groupBySupplier(list) {
- 
+
  // The counter staff type item names in lower case on the phone -- tidy them for the message.
  function tidyName(name) {
 +  if (name === "ng'ombe") {
@@ -50,4 +55,6 @@ index ea27642..70ea87d 100644
 +test("leaves ng'ombe as typed", () => {
 +assert.strictEqual(tidyName("ng'ombe"), "ng'ombe");
 +});
-```
+
+eof
+
