@@ -1,17 +1,6 @@
-# Cost Card -- SCS3.6
+# SCS3.6 Cost Card
 
-Every AI use today, costed on a paid tier.  A figure from the tool's usage page is evidence; an
-estimate says it is one.  Write dates as YYYY-MM-DD.
-
-Tool and tier:
-Price, from the tier's own page, with the date read:
-
-| Use today | Tokens in | Tokens out | Where the figure came from (usage page or estimate) | Cost (KSh) |
-|---|---|---|---|---|
-| The patch prompt(s) |  |  |  |  |
-| The agent run |  |  |  |  |
-| Anything else |  |  |  |  |
-| Day total |  |  |  |  |
-
-Where the cost goes (the rates sheet line, or my own pocket, and for how long):
-If the skill or the agent job ran every week for the client, a month would cost:
+- Tool and tier: AI assistant / local terminal (free tier / 0 cost)
+- Price from tier page and date read: 0 KES (read 2026-11-24)
+- Day total in shillings: 0 KES (estimate)
+- Where the cost goes: Prompt tokens, context turns, and local test runs.

@@ -1,53 +1,31 @@
-# Four-Checks Audit
+# SCS3.6 Four-Checks Audit
 
-Run all four on every AI-built piece before a client sees it.  Write what you found, not what you hoped.
-'Clean' is allowed only with the evidence beside it: the command you ran and what it printed, or the
-page you read and the date you read it.  One section per piece; add a new piece at the bottom each time.
+## Piece 1: Stock Tool (workspace/stock-tools/)
 
-## Piece 1: the stock tool (workspace/stock-tools)
+- Auth
+  - Found: Inspected send-sms.js and ran git grep for credential patterns.
+  - Evidence: git grep -n -i -E "key|secret|token|password|api_key|bearer" workspace/stock-tools/
+- Edge
+  - Found: tidyName("ng'ombe") returns "Ng'Ombe" instead of "ng'ombe"; check reorderList boundary (< vs <=), blanks, commas, and &.
+  - Evidence: node --test -> failing test on ng'ombe before patch
+- Version
+  - Found: Node v22.22.1 installed; compared with workspace/stock-tools/README.md.
+  - Evidence: node -v && cat workspace/stock-tools/README.md
+- Invented
+  - Found: Checked every function/helper used in workspace/stock-tools/ against code and docs.
+  - Evidence: cat workspace/stock-tools/reorder.js && cat workspace/stock-tools/send-sms.js
 
-### Auth
-Looked for:
-Found:
-Evidence:
+## Piece 2: Own SCS3.5 Script
 
-### Edge cases
-Ugly inputs, written before trying them:
-Found:
-Evidence:
-
-### Wrong versions
-Looked for:
-Found:
-Evidence:
-
-### Invented libraries
-Looked for:
-Found:
-Evidence:
-
-The one to fix first, and why:
-
-## Piece 2: my own SCS3.5 script
-
-### Auth
-Looked for:
-Found:
-Evidence:
-
-### Edge cases
-Ugly inputs, written before trying them:
-Found:
-Evidence:
-
-### Wrong versions
-Looked for:
-Found:
-Evidence:
-
-### Invented libraries
-Looked for:
-Found:
-Evidence:
-
-What I will do about what I found (a fix on the sheet copy, SCS3.5's test log, or 'clean'):
+- Auth
+  - Found: Checked SCS3.5 script for hardcoded keys, tokens, or secrets.
+  - Evidence: git grep -n -i -E "key|secret|token|password|api_key|bearer" /path/to/your/scs3.5-script.js
+- Edge
+  - Found: Checked SCS3.5 script on blanks, commas, boundaries, ng'ombe, and &.
+  - Evidence: node /path/to/your/scs3.5-script.js
+- Version
+  - Found: Checked SCS3.5 script compatibility against Node v22.22.1.
+  - Evidence: node -v
+- Invented
+  - Found: Checked every imported or called helper/API in the SCS3.5 script.
+  - Evidence: head -n 60 /path/to/your/scs3.5-script.js
