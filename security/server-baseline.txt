@@ -1,0 +1,167 @@
+# baseline-look snapshot -- fisher-Virtual-Machine -- 2026-11-26 14:44:55 (this first line always differs; every other line should not)
+[firewall]
+status: active
+default incoming: deny
+default outgoing: allow
+default routed: deny
+rule: ufw allow 80/tcp comment 'nGINX http web service - SCS4.3'
+rule: ufw allow 22/tcp comment 'SSH remote administration - SCS4.3'
+rule: ufw allow 8069/tcp comment 'Odoo Web Service - SCS4.3'
+rule: ufw allow 443/tcp comment 'HTTPS web service - SCS4.3'
+[listening on the network]
+tcp 22 sshd
+tcp 80 nginx
+tcp 8069 python3
+[listening on this machine only]
+tcp 53 systemd-resolve
+tcp 631 cupsd
+tcp 5432 postgres
+[backup job]
+file: /etc/cron.d/scs-backup  owner root  mode 644  sha256 318b0b06214cf2fd
+line: 17 * * * * root /usr/local/sbin/scs-server-backup /srv/scs-backups
+program: /usr/local/sbin/scs-server-backup  sha256 df3e5f4d30256770
+destination: /srv/scs-backups  mode 700  owner root
+[start-up]
+enabled: accounts-daemon.service
+enabled: anacron.service
+enabled: anacron.timer
+enabled: apparmor.service
+enabled: apport-autoreport.path
+enabled: apport-autoreport.timer
+enabled: apport-forward.socket
+enabled: apport.service
+enabled: apt-daily.timer
+enabled: apt-daily-upgrade.timer
+enabled: avahi-daemon.service
+enabled: avahi-daemon.socket
+enabled: bluetooth.service
+enabled: chrony.service
+enabled: cloud-config.service
+enabled: cloud-final.service
+enabled: cloud-init-hotplugd.socket
+enabled: cloud-init-local.service
+enabled: cloud-init-main.service
+enabled: cloud-init-network.service
+enabled: console-setup.service
+enabled: cron.service
+enabled: cups-browsed.service
+enabled: cups.path
+enabled: cups.service
+enabled: cups.socket
+enabled: dmesg.service
+enabled: dpkg-db-backup.timer
+enabled: e2scrub_all.timer
+enabled: e2scrub_reap.service
+enabled: fstrim.timer
+enabled: fwupd-refresh.timer
+enabled: getty@.service
+enabled: gpu-manager.service
+enabled: grub2-common.service
+enabled: grub-initrd-fallback.service
+enabled: kdump-tools.service
+enabled: keyboard-setup.service
+enabled: logrotate.timer
+enabled: man-db.timer
+enabled: ModemManager.service
+enabled: motd-news.timer
+enabled: netplan-configure.service
+enabled: networkd-dispatcher.service
+enabled: NetworkManager-dispatcher.service
+enabled: NetworkManager.service
+enabled: NetworkManager-wait-online.service
+enabled: nginx.service
+enabled: odoo.service
+enabled: openvpn.service
+enabled: polkit-agent-helper.socket
+enabled: postgresql.service
+enabled: power-profiles-daemon.service
+enabled: remote-fs.target
+enabled: rsyslog.service
+enabled: secureboot-db.service
+enabled: setvtrgb.service
+enabled: snap-bare-5.mount
+enabled: snap-core24-1643.mount
+enabled: snapd.apparmor.service
+enabled: snapd.autoimport.service
+enabled: snapd.core-fixup.service
+enabled: snap-desktop\x2dsecurity\x2dcenter-151.mount
+enabled: snap-desktop\x2dsecurity\x2dcenter-206.mount
+enabled: snapd.recovery-chooser-trigger.service
+enabled: snapd.seeded.service
+enabled: snapd.service
+enabled: snapd.snap-repair.timer
+enabled: snapd.socket
+enabled: snapd.system-shutdown.service
+enabled: snap-firefox-8763.mount
+enabled: snap-firmware\x2dupdater-226.mount
+enabled: snap-gnome\x2d46\x2d2404-164.mount
+enabled: snap-gtk\x2dcommon\x2dthemes-1535.mount
+enabled: snap-hwctl-123.mount
+enabled: snap-hwctl-131.mount
+enabled: snap.hwctl.hwctl-daemon.hwctl-socket.socket
+enabled: snap-mesa\x2d2404-1839.mount
+enabled: snap-prompting\x2dclient-222.mount
+enabled: snap-prompting\x2dclient-228.mount
+enabled: snap-snapd-27710.mount
+enabled: snap-snapd\x2ddesktop\x2dintegration-391.mount
+enabled: snap-snap\x2dstore-1390.mount
+enabled: sshd-keygen.service
+enabled: ssh.service
+enabled: ssh.socket
+enabled: ssl-cert.service
+enabled: sssd-autofs.socket
+enabled: sssd-nss.socket
+enabled: sssd-pac.socket
+enabled: sssd-pam.socket
+enabled: sssd.service
+enabled: sssd-ssh.socket
+enabled: sssd-sudo.socket
+enabled: switcheroo-control.service
+enabled: sysstat-collect.timer
+enabled: sysstat-rotate.timer
+enabled: sysstat.service
+enabled: sysstat-summary.timer
+enabled: systemd-oomd.service
+enabled: systemd-oomd.socket
+enabled: systemd-pstore.service
+enabled: systemd-resolved-monitor.socket
+enabled: systemd-resolved.service
+enabled: systemd-resolved-varlink.socket
+enabled: thermald.service
+enabled: tpm-udev.path
+enabled: ua-reboot-cmds.service
+enabled: ua-timer.timer
+enabled: ubuntu-advantage.service
+enabled: ubuntu-drivers.service
+enabled: udisks2.service
+enabled: ufw.service
+enabled: unattended-upgrades.service
+enabled: update-notifier-download.timer
+enabled: update-notifier-motd.timer
+enabled: uuidd.socket
+enabled: wpa_supplicant.service
+file in /etc/systemd/system: /etc/systemd/system/cloud-init-network.service
+file in /etc/systemd/system: /etc/systemd/system/snap-bare-5.mount
+file in /etc/systemd/system: /etc/systemd/system/snap-core24-1643.mount
+file in /etc/systemd/system: /etc/systemd/system/snap-desktop\x2dsecurity\x2dcenter-151.mount
+file in /etc/systemd/system: /etc/systemd/system/snap-desktop\x2dsecurity\x2dcenter-206.mount
+file in /etc/systemd/system: /etc/systemd/system/snap-firefox-8763.mount
+file in /etc/systemd/system: /etc/systemd/system/snap-firmware\x2dupdater-226.mount
+file in /etc/systemd/system: /etc/systemd/system/snap-gnome\x2d46\x2d2404-164.mount
+file in /etc/systemd/system: /etc/systemd/system/snap-gtk\x2dcommon\x2dthemes-1535.mount
+file in /etc/systemd/system: /etc/systemd/system/snap-hwctl-123.mount
+file in /etc/systemd/system: /etc/systemd/system/snap-hwctl-131.mount
+file in /etc/systemd/system: /etc/systemd/system/snap.hwctl.hwctl-daemon.hwctl-socket.socket
+file in /etc/systemd/system: /etc/systemd/system/snap.hwctl.hwctl-daemon.service
+file in /etc/systemd/system: /etc/systemd/system/snap.mesa-2404.component-monitor.service
+file in /etc/systemd/system: /etc/systemd/system/snap-mesa\x2d2404-1839.mount
+file in /etc/systemd/system: /etc/systemd/system/snap-prompting\x2dclient-222.mount
+file in /etc/systemd/system: /etc/systemd/system/snap-prompting\x2dclient-228.mount
+file in /etc/systemd/system: /etc/systemd/system/snap-snapd-27710.mount
+file in /etc/systemd/system: /etc/systemd/system/snap-snapd\x2ddesktop\x2dintegration-391.mount
+file in /etc/systemd/system: /etc/systemd/system/snap-snap\x2dstore-1390.mount
+@reboot: (none)
+cron.d: anacron e2scrub_all .placeholder scs-backup
+[admins]
+sudo: fisher
+uid 0: root
